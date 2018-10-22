@@ -8,6 +8,7 @@ common_src_files := \
 	NetlinkManager.cpp \
 	NetlinkHandler.cpp \
 	Process.cpp \
+	fs/Exfat.cpp \
 	fs/Ext4.cpp \
 	fs/F2fs.cpp \
 	fs/Ntfs.cpp \
@@ -102,11 +103,6 @@ ifeq ($(TARGET_HW_DISK_ENCRYPTION),true)
   common_c_includes += $(TARGET_CRYPTFS_HW_PATH)
   common_shared_libraries += libcryptfs_hw
   vold_cflags += -DCONFIG_HW_DISK_ENCRYPTION
-endif
-
-ifneq ($(TARGET_EXFAT_DRIVER),)
-  vold_cflags += -DCONFIG_EXFAT_DRIVER=\"$(TARGET_EXFAT_DRIVER)\"
-  common_src_files += fs/Exfat.cpp
 endif
 
 include $(CLEAR_VARS)
