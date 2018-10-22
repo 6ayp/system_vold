@@ -62,7 +62,7 @@ status_t Mount(const std::string& source, const std::string& target, bool ro,
 
     sprintf(mountData,
             "noatime,nodev,nosuid,dirsync,uid=%d,gid=%d,fmask=%o,dmask=%o,%s,%s,"
-            "context=u:object_r:media_rw_data_file:s0",
+            "context=u:object_r:vfat:s0",
             ownerUid, ownerGid, permMask, permMask,
             (executable ? "exec" : "noexec"),
             (ro ? "ro" : "rw"));
